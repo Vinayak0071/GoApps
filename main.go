@@ -7,7 +7,7 @@ import (
 
 func main(){
 	http.HandleFunc("/",func(http.ResponseWriter,*http.Request){
-		log.Println("yo")
+		log.Println("Commit after am")
 	})
 	http.HandleFunc("/yo",func(http.ResponseWriter,*http.Request){
 		log.Println("yoyo")
