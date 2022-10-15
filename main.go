@@ -1,16 +1,20 @@
 package main
 
 import (
-	"log"
-	"net/http"
+	"fmt"
 )
 
+type GitlabsParser struct {
+	UID         string     `json:"before_sha"`
+	BuildID     int        `json:"build_id"`
+	DateCreated string     `json:"build_started_at"`
+	ProjectName string     `json:"project_name"`
+	Repository  string `json:"repository"`
+	Commit      string     `json:"commit"`
+}
+
 func main(){
-	http.HandleFunc("/",func(http.ResponseWriter,*http.Request){
-		log.Println("yo")
-	})
-	http.HandleFunc("/yo",func(http.ResponseWriter,*http.Request){
-		log.Println("yoyo")
-	})
-	http.ListenAndServe(":9090",nil)
+	var G GitlabsParser
+	G.UID = "Yo"
+	fmt.Print(G)
 }
